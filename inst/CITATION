@@ -1,0 +1,17 @@
+citHeader("To cite recurQR in publications, please cite the associated paper:")
+
+citEntry(
+  entry    = "Article",
+  title    = "Exploring the Heterogeneity in Recurrent Episode Lengths Based On Quantile Regression",
+  author   = personList(
+    as.person("Yi Liu"),
+    as.person("Guillermo E. Umpierrez"),
+    as.person("Limin Peng")
+  ),
+  year     = "2025",
+  note     = "R package 'recurQR'",
+  textVersion =
+    paste("Liu Y, Umpierrez GE, Peng L (2025).",
+          "Exploring the Heterogeneity in Recurrent Episode Lengths Based On Quantile Regression.",
+          "R package 'recurQR'.")
+)

@@ -1,0 +1,31 @@
+Package: recurQR
+Type: Package
+Title: Quantile Regression for Recurrent Episode Lengths
+Version: 0.2.3.5
+Authors@R: c(
+    person("Yi", "Liu", role = c("aut")),
+    person("Guillermo E.", "Umpierrez", role = c("aut")),
+    person("Limin", "Peng", role = c("aut", "cre"), email = "lpeng@emory.edu")
+  )
+Description: Implements the two-step estimation procedure proposed in
+    Liu, Umpierrez, and Peng (2025) for modeling recurrent episode lengths
+    via quantile regression while addressing dependent truncation, dependent
+    censoring, and informative cluster size.
+    The method uses a first-stage quantile regression on within-subject
+    differences to estimate time-dependent covariate effects, and a second-stage
+    weighted quantile regression to estimate time-independent covariate effects.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Imports:
+    quantreg,
+    graphics,
+    stats,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1

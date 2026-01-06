@@ -1,0 +1,14 @@
+# Generated manually for GitHub distribution.
+# If you use roxygen2, you can regenerate this file via devtools::document().
+
+export(rqrecur)
+export(rqrecur_boot)
+export(read_example_sim_data)
+
+S3method(print, rqrecur)
+S3method(summary, rqrecur)
+S3method(coef, rqrecur)
+S3method(predict, rqrecur)
+S3method(confint, rqrecur)
+S3method(plot, rqrecur)
+S3method(print, summary.rqrecur)
