@@ -19,7 +19,7 @@ cluster size.
 
 ```r
 # install.packages("remotes")
-remotes::install_github("YOUR_GITHUB_USERNAME/recurQR")
+remotes::install_github("erinliu1902-ux/recurQR")
 ```
 
 ## Quick start
@@ -109,12 +109,4 @@ system.file("simulations", package = "recurQR")
 They are **not** run automatically by the package (they are heavy by design), but are included for
 reproducibility and as worked examples.
 
-## Notes / limitations (current version)
 
-- `rqrecur()` currently supports **additive** covariate terms only (no interactions or transformations),
-  because the step-1 "delta" construction requires an unambiguous definition of the time-dependent covariate changes.
-- Time-dependent covariates specified in `td_vars` must be numeric.
-
-## License
-
-MIT.
