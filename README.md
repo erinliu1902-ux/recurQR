@@ -1,0 +1,2 @@
+# recurQR
+R package "recurQR"
