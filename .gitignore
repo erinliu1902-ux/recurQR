@@ -1,0 +1,8 @@
+.Rhistory
+.RData
+.Rproj.user/
+.Rcheck/
+.Rbuildignore
+*.tar.gz
+*.Rproj
+.DS_Store
