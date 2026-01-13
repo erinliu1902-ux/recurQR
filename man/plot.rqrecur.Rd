@@ -26,3 +26,18 @@ If \code{NULL}, a square-ish layout is chosen automatically.}
 Coefficients plot.
 }
 \seealso{\code{\link{rqrecur}}, \code{\link{rqrecur_boot}}, \code{\link[stats]{confint}}}
+\examples{
+dat <- read_example_sim_data()
+fit <- rqrecur(
+  epi_length ~ z1 + z2 + z3,
+  data = dat,
+  id = "id",
+  td_vars = "z3",
+  tau = c(0.25, 0.5, 0.75),
+  censor_time = NULL
+)
+
+if (interactive()) {
+  plot(fit, parm = c("(Intercept)", "z1", "z2", "z3"), ci = FALSE)
+}
+}

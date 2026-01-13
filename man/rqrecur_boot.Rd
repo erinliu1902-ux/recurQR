@@ -26,3 +26,21 @@ Default is \code{5 * B}.}
 The input \code{object}, augmented with a \code{bootstrap} element.
 }
 \seealso{\code{\link{rqrecur}}, \code{\link[stats]{confint}}}
+\examples{
+\dontrun{
+dat <- read_example_sim_data()
+fit <- rqrecur(
+  epi_length ~ z1 + z2 + z3,
+  data = dat,
+  id = "id",
+  td_vars = "z3",
+  tau = seq(0.2, 0.8, by = 0.1),
+  censor_time = NULL
+)
+
+fit_b <- rqrecur_boot(fit, data = dat, B = 200, seed = 1)
+confint(fit_b)
+
+if (interactive()) plot(fit_b, parm = c("z1", "z2", "z3"))
+}
+}

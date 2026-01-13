@@ -1,7 +1,6 @@
 # ─── Load Required Packages ─────────────────────────────────────────────────────
 # quantreg: quantile regression functions (rq)
 # tidyr:    data frame utilities (expand_grid)
-library(quantreg)
 library(tidyr)
 
 # ─── Data Generation ────────────────────────────────────────────────────────────
@@ -106,13 +105,13 @@ boot.qr <- function(da, B, fix.C) {
     wc1 <- 1 / sapply(da_B$T1 + da_B$n_epi_length_1, S.C, fix.C = fix.C)
     wc2 <- 1 / sapply(da_B$T1 + da_B$n_epi_length_2, S.C, fix.C = fix.C)
     wc3 <- 1 / sapply(da_B$T1 + da_B$n_epi_length_3, S.C, fix.C = fix.C)
-    fit1 <- rq(n_epi_length_1 ~ z1 + z2,
+    fit1 <- quantreg::rq(n_epi_length_1 ~ z1 + z2,
                data = da_B, tau = taus[1],
                weights = 1 / n_episode * wc1)
-    fit2 <- rq(n_epi_length_2 ~ z1 + z2,
+    fit2 <- quantreg::rq(n_epi_length_2 ~ z1 + z2,
                data = da_B, tau = taus[2],
                weights = 1 / n_episode * wc2)
-    fit3 <- rq(n_epi_length_3 ~ z1 + z2,
+    fit3 <- quantreg::rq(n_epi_length_3 ~ z1 + z2,
                data = da_B, tau = taus[3],
                weights = 1 / n_episode * wc3)
     coef.w3 <- rbind(coef.w3,
@@ -168,11 +167,11 @@ sim.RED <- function(i_sim) {
     freq <- c(freq, nrow(da) / size)
     trun <- c(trun, 1 - length(unique(da$id)) / size)
     
-    fit.uw <- rq(epi_length ~ z1 + z2,
+    fit.uw <- quantreg::rq(epi_length ~ z1 + z2,
                  data = da, tau = taus)
     coef.uw <- rbind(coef.uw, c(fit.uw$coefficients))
     
-    fit.w4 <- rq(epi_length ~ z1 + z2,
+    fit.w4 <- quantreg::rq(epi_length ~ z1 + z2,
                  data = da, tau = taus,
                  weights = 1 / da$n_episode)
     coef.w4 <- rbind(coef.w4, c(fit.w4$coefficients))
@@ -180,13 +179,13 @@ sim.RED <- function(i_sim) {
     da$n_epi_length_1 <- da$epi_length
     da$n_epi_length_2 <- da$epi_length
     da$n_epi_length_3 <- da$epi_length
-    fit5_1 <- rq(n_epi_length_1 ~ z1 + z2,
+    fit5_1 <- quantreg::rq(n_epi_length_1 ~ z1 + z2,
                  data = da, tau = taus[1],
                  weights = 1 / n_episode)
-    fit5_2 <- rq(n_epi_length_2 ~ z1 + z2,
+    fit5_2 <- quantreg::rq(n_epi_length_2 ~ z1 + z2,
                  data = da, tau = taus[2],
                  weights = 1 / n_episode)
-    fit5_3 <- rq(n_epi_length_3 ~ z1 + z2,
+    fit5_3 <- quantreg::rq(n_epi_length_3 ~ z1 + z2,
                  data = da, tau = taus[3],
                  weights = 1 / n_episode)
     coef.w5 <- rbind(coef.w5,
@@ -198,13 +197,13 @@ sim.RED <- function(i_sim) {
     wc1 <- 1 / sapply(da$T1 + da$n_epi_length_1, S.C, fix.C = fix.C)
     wc2 <- 1 / sapply(da$T1 + da$n_epi_length_2, S.C, fix.C = fix.C)
     wc3 <- 1 / sapply(da$T1 + da$n_epi_length_3, S.C, fix.C = fix.C)
-    fit6_1 <- rq(n_epi_length_1 ~ z1 + z2,
+    fit6_1 <- quantreg::rq(n_epi_length_1 ~ z1 + z2,
                  data = da, tau = taus[1],
                  weights = 1 / n_episode * wc1)
-    fit6_2 <- rq(n_epi_length_2 ~ z1 + z2,
+    fit6_2 <- quantreg::rq(n_epi_length_2 ~ z1 + z2,
                  data = da, tau = taus[2],
                  weights = 1 / n_episode * wc2)
-    fit6_3 <- rq(n_epi_length_3 ~ z1 + z2,
+    fit6_3 <- quantreg::rq(n_epi_length_3 ~ z1 + z2,
                  data = da, tau = taus[3],
                  weights = 1 / n_episode * wc3)
     coef.w6 <- rbind(coef.w6,

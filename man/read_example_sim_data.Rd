@@ -10,3 +10,8 @@ read_example_sim_data()
 \value{
 A data.frame in long format with one row per episode.
 }
+\examples{
+dat <- read_example_sim_data()
+dim(dat)
+head(dat)
+}
